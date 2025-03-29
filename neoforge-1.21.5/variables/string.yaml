@@ -1,0 +1,28 @@
+defaultvalue: '""'
+scopes:
+  local:
+    init: ${var.getType().getJavaType(generator.getWorkspace())} ${var.getName()} = ${var.getType().getDefaultValue(generator.getWorkspace())};
+    get: ${name}
+    set: ${name} = ${opt.removeParentheses(value)};
+  player_lifetime:
+    init: public String ${var.getName()} = "${JavaConventions.escapeStringForJava(var.getValue())}";
+    read: ${var.getName()} = nbt.getStringOr("${var.getName()}","${JavaConventions.escapeStringForJava(var.getValue())}");
+    write: nbt.putString("${var.getName()}", ${var.getName()});
+    get: ${entity}.getData(${JavaModName}Variables.PLAYER_VARIABLES).${name}
+    set: |
+      {
+        ${JavaModName}Variables.PlayerVariables _vars = ${entity}.getData(${JavaModName}Variables.PLAYER_VARIABLES);
+        _vars.${name} = ${opt.removeParentheses(value)};
+        _vars.syncPlayerVariables(${entity});
+      }
+  player_persistent:
+    init: public String ${var.getName()} = "${JavaConventions.escapeStringForJava(var.getValue())}";
+    read: ${var.getName()} = nbt.getStringOr("${var.getName()}", "${JavaConventions.escapeStringForJava(var.getValue())}");
+    write: nbt.putString("${var.getName()}", ${var.getName()});
+    get: ${entity}.getData(${JavaModName}Variables.PLAYER_VARIABLES).${name}
+    set: |
+      {
+        ${JavaModName}Variables.PlayerVariables _vars = ${entity}.getData(${JavaModName}Variables.PLAYER_VARIABLES);
+        _vars.${name} = ${opt.removeParentheses(value)};
+        _vars.syncPlayerVariables(${entity});
+      }

@@ -1,0 +1,28 @@
+defaultvalue: false
+scopes:
+  local:
+    init: ${var.getType().getJavaType(generator.getWorkspace())} ${var.getName()} = ${var.getType().getDefaultValue(generator.getWorkspace())};
+    get: ${name}
+    set: ${name} = ${opt.removeParentheses(value)};
+  player_lifetime:
+    init: public boolean ${var.getName()} = ${var.getValue()};
+    read: ${var.getName()} = nbt.getBooleanOr("${var.getName()}", ${var.getValue()});
+    write: nbt.putBoolean("${var.getName()}", ${var.getName()});
+    get: ${entity}.getData(${JavaModName}Variables.PLAYER_VARIABLES).${name}
+    set: |
+      {
+        ${JavaModName}Variables.PlayerVariables _vars = ${entity}.getData(${JavaModName}Variables.PLAYER_VARIABLES);
+        _vars.${name} = ${opt.removeParentheses(value)};
+        _vars.syncPlayerVariables(${entity});
+      }
+  player_persistent:
+    init: public boolean ${var.getName()} = ${var.getValue()};
+    read: ${var.getName()} = nbt.getBooleanOr("${var.getName()}", ${var.getValue()});
+    write: nbt.putBoolean("${var.getName()}", ${var.getName()});
+    get: ${entity}.getData(${JavaModName}Variables.PLAYER_VARIABLES).${name}
+    set: |
+      {
+        ${JavaModName}Variables.PlayerVariables _vars = ${entity}.getData(${JavaModName}Variables.PLAYER_VARIABLES);
+        _vars.${name} = ${opt.removeParentheses(value)};
+        _vars.syncPlayerVariables(${entity});
+      }
