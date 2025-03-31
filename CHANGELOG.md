@@ -1,3 +1,7 @@
+1.3:
+- [Bugfix] entity_set_armor_slot_item procedure block is now work
+- [Bugfix] strike_lightning procedure block is now work
+
 1.2:
 
 - Added support for blockstate and direction variables types (for player-side only)
