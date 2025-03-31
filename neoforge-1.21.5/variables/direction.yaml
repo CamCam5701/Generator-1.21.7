@@ -4,3 +4,25 @@ scopes:
     init: ${var.getType().getJavaType(generator.getWorkspace())} ${var.getName()} = ${var.getType().getDefaultValue(generator.getWorkspace())};
     get: ${name}
     set: ${name} = ${opt.removeParentheses(value)};
+  player_lifetime:
+    init: public Direction ${var.getName()} = ${generator.map(var.getValue(), "directions")};
+    read: ${var.getName()} = Direction.from3DDataValue(nbt.getIntOr("${var.getName()}", 0));
+    write: nbt.putInt("${var.getName()}", ${var.getName()}.get3DDataValue());
+    get: ${entity}.getData(${JavaModName}Variables.PLAYER_VARIABLES).${name}
+    set: |
+      {
+        ${JavaModName}Variables.PlayerVariables _vars = ${entity}.getData(${JavaModName}Variables.PLAYER_VARIABLES);
+        _vars.${name} = ${opt.removeParentheses(value)};
+        _vars.syncPlayerVariables(${entity});
+      }
+  player_persistent:
+    init: public Direction ${var.getName()} = ${generator.map(var.getValue(), "directions")};
+    read: ${var.getName()} = Direction.from3DDataValue(nbt.getIntOr("${var.getName()}, 0"));
+    write: nbt.putInt("${var.getName()}", ${var.getName()}.get3DDataValue());
+    get: ${entity}.getData(${JavaModName}Variables.PLAYER_VARIABLES).${name}
+    set: |
+      {
+        ${JavaModName}Variables.PlayerVariables _vars = ${entity}.getData(${JavaModName}Variables.PLAYER_VARIABLES);
+        _vars.${name} = ${opt.removeParentheses(value)};
+        _vars.syncPlayerVariables(${entity});
+      }
