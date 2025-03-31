@@ -1,6 +1,8 @@
 1.2:
 
 - Added support for blockstate and direction variables types (for player-side only)
+- [Bugfix] projectiles_potion procedure block is now work
+- [Bugfix] Fixed error related immune effects for entities
 
 1.1:
 

@@ -340,7 +340,7 @@ public class ${name}Entity extends ${extendsClass} <#if data.ranged>implements R
 				return false;
 		</#if>
 		<#if data.immuneToPotions>
-			if (damagesource.getDirectEntity() instanceof ThrownPotion || damagesource.getDirectEntity() instanceof AreaEffectCloud
+			if (damagesource.getDirectEntity() instanceof AbstractThrownPotion || damagesource.getDirectEntity() instanceof AreaEffectCloud
 					|| damagesource.typeHolder().is(NeoForgeMod.POISON_DAMAGE))
 				return false;
 		</#if>
