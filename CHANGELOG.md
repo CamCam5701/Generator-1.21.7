@@ -1,3 +1,7 @@
+1.4:
+- Bump NeoForge to 21.5.15-beta
+- [Bugfix] Fixed the hitbox and incorrect projectile behavior
+
 1.3:
 - [Bugfix] entity_set_armor_slot_item procedure block is now work
 - [Bugfix] strike_lightning procedure block is now work
