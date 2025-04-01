@@ -1,5 +1,6 @@
 1.6:
 - Added get_entity_nbt procedure blocks support
+- [Bugfix] Fixed an error that caused itemstack variables to crash
 
 1.5:
 - Added support for itemstack variables type (for player-side only)

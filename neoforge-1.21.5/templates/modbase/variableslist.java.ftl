@@ -50,6 +50,7 @@ import net.minecraft.nbt.Tag;
 				player.getData(PLAYER_VARIABLES).syncPlayerVariables(event.getEntity());
 		}
 
+
 		@SubscribeEvent public static void clonePlayer(PlayerEvent.Clone event) {
 			PlayerVariables original = event.getOriginal().getData(PLAYER_VARIABLES);
 			PlayerVariables clone = new PlayerVariables();
@@ -254,6 +255,23 @@ import net.minecraft.nbt.Tag;
 				<@var.getType().getScopeDefinition(generator.getWorkspace(), "PLAYER_PERSISTENT")['init']?interpret/>
 			</#if>
 		</#list>
+
+    private void putItemStack(CompoundTag nbt, String key, ItemStack stack, HolderLookup.Provider lookupProvider) {
+        if (!stack.isEmpty()) {
+            nbt.put(key, stack.save(lookupProvider));
+        } else {
+            nbt.putBoolean(key + "_empty", true);
+        }
+    }
+
+        private ItemStack getItemStack(CompoundTag nbt, String key, HolderLookup.Provider lookupProvider) {
+            if (nbt.contains(key + "_empty")) {
+                return ItemStack.EMPTY;
+            }
+            return nbt.contains(key)
+                ? ItemStack.parse(lookupProvider, nbt.getCompoundOrEmpty(key)).orElse(ItemStack.EMPTY)
+                : ItemStack.EMPTY;
+        }
 
 		@Override public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
 			CompoundTag nbt = new CompoundTag();
