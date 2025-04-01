@@ -4,3 +4,27 @@ scopes:
     init: ${var.getType().getJavaType(generator.getWorkspace())} ${var.getName()} = ${var.getType().getDefaultValue(generator.getWorkspace())};
     get: /*@ItemStack*/${name}
     set: <#include "mcitems.ftl"> ${name} = ${mappedMCItemToItemStackCode(value, 1)}.copy();
+  player_lifetime:
+    init: public ItemStack ${var.getName()} = ItemStack.EMPTY;
+    read: if (nbt.contains("${var.getName()}")) { ${var.getName()} = ItemStack.parse(lookupProvider, nbt.getCompoundOrEmpty("${var.getName()}")).orElse(ItemStack.EMPTY);} else {item_var = ItemStack.EMPTY;}
+    write: if (!item_var.isEmpty()) {nbt.put("${var.getName()}", ${var.getName()}.save(lookupProvider));}
+    get: /*@ItemStack*/${entity}.getData(${JavaModName}Variables.PLAYER_VARIABLES).${name}
+    set: |
+      <#include "mcitems.ftl">
+      {
+        ${JavaModName}Variables.PlayerVariables _vars = ${entity}.getData(${JavaModName}Variables.PLAYER_VARIABLES);
+        _vars.${name} = ${mappedMCItemToItemStackCode(value, 1)}.copy();
+        _vars.syncPlayerVariables(${entity});
+      }
+  player_persistent:
+    init: public ItemStack ${var.getName()} = ItemStack.EMPTY;
+    read: if (nbt.contains("${var.getName()}")) { ${var.getName()} = ItemStack.parse(lookupProvider, nbt.getCompoundOrEmpty("${var.getName()}")).orElse(ItemStack.EMPTY);} else {item_var = ItemStack.EMPTY;}
+    write: if (!item_var.isEmpty()) {nbt.put("${var.getName()}", ${var.getName()}.save(lookupProvider));}
+    get: /*@ItemStack*/${entity}.getData(${JavaModName}Variables.PLAYER_VARIABLES).${name}
+    set: |
+      <#include "mcitems.ftl">
+      {
+        ${JavaModName}Variables.PlayerVariables _vars = ${entity}.getData(${JavaModName}Variables.PLAYER_VARIABLES);
+        _vars.${name} = ${mappedMCItemToItemStackCode(value, 1)}.copy();
+        _vars.syncPlayerVariables(${entity});
+      }

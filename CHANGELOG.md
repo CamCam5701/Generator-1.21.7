@@ -1,5 +1,8 @@
-1.4:
-- Bump NeoForge to 21.5.15-beta
+1.5:
+- Added support for itemstack variables type (for player-side only)
+
+1.4.x:
+- Bump NeoForge to 21.5.16-beta
 - [Bugfix] Fixed the hitbox and incorrect projectile behavior
 
 1.3:
