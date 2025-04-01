@@ -1,1 +1,1 @@
-(${input$entity}.getPersistentData().getBoolean(${input$tagName}))
+(${input$entity}.getPersistentData().getBooleanOr(${input$tagName}, false))

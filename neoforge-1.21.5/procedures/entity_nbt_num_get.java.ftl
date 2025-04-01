@@ -1,1 +1,1 @@
-(${input$entity}.getPersistentData().getDouble(${input$tagName}))
+(${input$entity}.getPersistentData().getDoubleOr(${input$tagName}, 0))

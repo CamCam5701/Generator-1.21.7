@@ -1,3 +1,6 @@
+1.6:
+- Added get_entity_nbt procedure blocks support
+
 1.5:
 - Added support for itemstack variables type (for player-side only)
 
