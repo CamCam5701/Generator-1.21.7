@@ -1,3 +1,6 @@
+1.8:
+- Added GLOBAL_MAP and GLOBAL_WORLD type for all global variables
+
 1.7:
 - Bump NeoForge to 21.5.23-beta
 - Added GLOBAL_SESSION type for all global variables

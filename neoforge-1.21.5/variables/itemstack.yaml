@@ -8,6 +8,20 @@ scopes:
     init: public static ItemStack ${var.getName()} = ItemStack.EMPTY;
     get: /*@ItemStack*/${JavaModName}Variables.${name}
     set: <#include "mcitems.ftl"> ${JavaModName}Variables.${name} = ${mappedMCItemToItemStackCode(value, 1)}.copy();
+  global_world:
+    init: public ItemStack ${var.getName()} = ItemStack.EMPTY;
+    get: /*@ItemStack*/${JavaModName}Variables.WorldVariables.get(world).${name}
+    set: |
+      <#include "mcitems.ftl">
+      ${JavaModName}Variables.WorldVariables.get(world).${name} = ${mappedMCItemToItemStackCode(value, 1)}.copy();
+      ${JavaModName}Variables.WorldVariables.get(world).syncData(world);
+  global_map:
+    init: public ItemStack ${var.getName()} = ItemStack.EMPTY;
+    get: /*@ItemStack*/${JavaModName}Variables.MapVariables.get(world).${name}
+    set: |
+      <#include "mcitems.ftl">
+      ${JavaModName}Variables.MapVariables.get(world).${name} = ${mappedMCItemToItemStackCode(value, 1)}.copy();
+      ${JavaModName}Variables.MapVariables.get(world).syncData(world);
   player_lifetime:
     init: public ItemStack ${var.getName()} = ItemStack.EMPTY;
     read:  ${var.getName()} = getItemStack(nbt, "${var.getName()}", lookupProvider);
