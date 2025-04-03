@@ -4,6 +4,10 @@ scopes:
     init: ${var.getType().getJavaType(generator.getWorkspace())} ${var.getName()} = ${var.getType().getDefaultValue(generator.getWorkspace())};
     get: ${name}
     set: ${name} = ${opt.removeParentheses(value)};
+  global_session:
+    init: public static boolean ${var.getName()} = ${var.getValue()};
+    get: ${JavaModName}Variables.${name}
+    set: ${JavaModName}Variables.${name} = ${opt.removeParentheses(value)};
   player_lifetime:
     init: public boolean ${var.getName()} = ${var.getValue()};
     read: ${var.getName()} = nbt.getBooleanOr("${var.getName()}", ${var.getValue()});
