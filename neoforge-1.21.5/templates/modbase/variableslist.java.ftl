@@ -165,7 +165,11 @@ import com.mojang.serialization.Codec;
             <#else>
                 <#list variables as var>
                     <#if var.getScope().name() == "GLOBAL_WORLD">
-                        this.${var.getName()} = ${var.getName()} != null ? ${var.getName()} : ${getDefaultValue(var.getType()!)?default("\"\"")};
+                <#if var.getType().getName() == "number" || var.getType().getName() == "logic">
+                        this.${var.getName()} = ${var.getName()};
+                        <#else>
+                        this.${var.getName()} = ${var.getName()} != null ? ${var.getName()} : ${getDefaultValue(var.getType())};
+                        </#if>
                     </#if>
                 </#list>
             </#if>
@@ -267,7 +271,11 @@ import com.mojang.serialization.Codec;
             <#else>
                 <#list variables as var>
                     <#if var.getScope().name() == "GLOBAL_MAP">
-                        this.${var.getName()} = ${var.getName()} != null ? ${var.getName()} : ${getDefaultValue(var.getType()!)?default("\"\"")};
+                <#if var.getType().getName() == "number" || var.getType().getName() == "logic">
+                        this.${var.getName()} = ${var.getName()};
+                        <#else>
+                        this.${var.getName()} = ${var.getName()} != null ? ${var.getName()} : ${getDefaultValue(var.getType())};
+                        </#if>
                     </#if>
                 </#list>
             </#if>
