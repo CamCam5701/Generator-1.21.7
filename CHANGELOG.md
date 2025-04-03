@@ -1,3 +1,7 @@
+1.7:
+- Bump NeoForge to 21.5.23-beta
+- Added GLOBAL_SESSION type for all global variables
+
 1.6:
 - Added get_entity_nbt procedure blocks support
 - [Bugfix] Fixed an error that caused itemstack variables to crash
