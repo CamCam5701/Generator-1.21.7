@@ -5,6 +5,7 @@ package ${package}.network;
 
 import ${package}.${JavaModName};
 
+import net.neoforged.neoforge.event.level.LevelEvent;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.item.ItemStack;
@@ -13,6 +14,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import com.mojang.serialization.Codec;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD) public class ${JavaModName}Variables {
+
+    public static void registerEventHandlers() {
+        NeoForge.EVENT_BUS.addListener(GameEventHandler::onWorldCreate);
+        NeoForge.EVENT_BUS.addListener(GameEventHandler::onWorldLoad);
+    }
 
     public static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES = DeferredRegister.create(NeoForgeRegistries.Keys.ATTACHMENT_TYPES, ${JavaModName}.MODID);
 
@@ -100,6 +106,61 @@ import com.mojang.serialization.Codec;
     </#if>
 
     <#if w.hasVariablesOfScope("GLOBAL_WORLD") || w.hasVariablesOfScope("GLOBAL_MAP")>
+
+public static class GameEventHandler {
+    @SubscribeEvent
+    public static void onWorldCreate(LevelEvent.CreateSpawnPosition event) {
+        if (!event.getLevel().isClientSide() && event.getLevel() instanceof ServerLevel level) {
+            // Инициализация WorldVariables только при создании мира
+            WorldVariables worldVariables = WorldVariables.get(level);
+            <#list variables as var>
+                <#if var.getScope().name() == "GLOBAL_WORLD">
+                    <#if var.getType().getName() == "string">
+            worldVariables.${var.getName()} = "${var.value!var.getType().getDefaultValue(generator.getWorkspace())}";
+                    <#elseif var.getType().getName() == "logic">
+            worldVariables.${var.getName()} = ${var.value!var.getType().getDefaultValue(generator.getWorkspace())?string("true", "false")};
+                    <#elseif var.getType().getName() == "number">
+            worldVariables.${var.getName()} = ${var.value!var.getType().getDefaultValue(generator.getWorkspace())};
+                    <#else>
+            if (worldVariables.${var.getName()} == null) {
+                worldVariables.${var.getName()} = ${var.value!var.getType().getDefaultValue(generator.getWorkspace())};
+            }
+                    </#if>
+                </#if>
+            </#list>
+            worldVariables.setDirty();
+
+            // Инициализация MapVariables только при создании мира
+            MapVariables mapVariables = MapVariables.get(level);
+            <#list variables as var>
+                <#if var.getScope().name() == "GLOBAL_MAP">
+                    <#if var.getType().getName() == "string">
+            mapVariables.${var.getName()} = "${var.value!var.getType().getDefaultValue(generator.getWorkspace())}";
+                    <#elseif var.getType().getName() == "logic">
+            mapVariables.${var.getName()} = ${var.value!var.getType().getDefaultValue(generator.getWorkspace())?string("true", "false")};
+                    <#elseif var.getType().getName() == "number">
+            mapVariables.${var.getName()} = ${var.value!var.getType().getDefaultValue(generator.getWorkspace())};
+                    <#else>
+            if (mapVariables.${var.getName()} == null) {
+                mapVariables.${var.getName()} = ${var.value!var.getType().getDefaultValue(generator.getWorkspace())};
+            }
+                    </#if>
+                </#if>
+            </#list>
+            mapVariables.setDirty();
+        }
+    }
+
+    @SubscribeEvent
+    public static void onWorldLoad(LevelEvent.Load event) {
+        // Только синхронизация при загрузке существующего мира
+        if (!event.getLevel().isClientSide() && event.getLevel() instanceof ServerLevel level) {
+            WorldVariables.get(level).setDirty();
+            MapVariables.get(level).setDirty();
+        }
+    }
+}
+
     public static class WorldVariables extends SavedData {
         public static final String DATA_NAME = "${modid}_worldvars";
 
