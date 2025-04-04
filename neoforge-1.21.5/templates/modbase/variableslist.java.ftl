@@ -5,6 +5,7 @@ package ${package}.network;
 
 import ${package}.${JavaModName};
 
+import com.mojang.datafixers.util.Pair;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.core.Direction;
@@ -112,21 +113,80 @@ import com.mojang.serialization.Codec;
             </#list>
         </#if>
 
-        public static final Codec<WorldVariables> CODEC = RecordCodecBuilder.create(instance -> instance
-            .group(
-                <#assign first = true>
+        public static final Codec<WorldVariables> CODEC = new Codec<WorldVariables>() {
+            @Override
+            public <T> DataResult<Pair<WorldVariables, T>> decode(DynamicOps<T> ops, T input) {
+                return ops.getMap(input).flatMap(map -> {
+                    Builder builder = new Builder();
+
+                    <#if !w.hasVariablesOfScope("GLOBAL_WORLD")>
+                    DataResult<String> emptyStringResult = ops.getStringValue(map.get("empty_string"));
+                    if (emptyStringResult.result().isEmpty()) {
+                        return DataResult.error(() -> "Missing or invalid 'empty_string' field");
+                    }
+                    builder.empty_string = emptyStringResult.result().get();
+                    <#else>
+                        <#assign first = true>
+                        <#list variables as var>
+                            <#if var.getScope().name() == "GLOBAL_WORLD">
+                    ${getCodecType(var.getType())}.decode(ops, map.get("${var.getName()}"))
+                        .result().ifPresent(v -> builder.${var.getName()} = v.getFirst());
+                                <#assign first = false>
+                            </#if>
+                        </#list>
+                    </#if>
+
+                    return DataResult.success(Pair.of(builder.build(), ops.empty()));
+                });
+            }
+
+            @Override
+            public <T> DataResult<T> encode(WorldVariables input, DynamicOps<T> ops, T prefix) {
+                RecordBuilder<T> recordBuilder = ops.mapBuilder();
+
                 <#if !w.hasVariablesOfScope("GLOBAL_WORLD")>
-                    Codec.STRING.fieldOf("empty_string").forGetter(mv -> mv.empty_string)
+                recordBuilder.add("empty_string", ops.createString(input.empty_string));
                 <#else>
+                    <#assign first = true>
                     <#list variables as var>
                         <#if var.getScope().name() == "GLOBAL_WORLD">
-                            <#if !first>, </#if>${getCodecType(var.getType())}.fieldOf("${var.getName()}").forGetter(mv -> mv.${var.getName()})
+                recordBuilder.add("${var.getName()}", ${getCodecType(var.getType())}.encode(input.${var.getName()}, ops, ops.empty()));
                             <#assign first = false>
                         </#if>
                     </#list>
                 </#if>
-            ).apply(instance, WorldVariables::new)
-        );
+
+                return recordBuilder.build(prefix);
+            }
+        };
+
+        private static class Builder {
+            <#if !w.hasVariablesOfScope("GLOBAL_WORLD")>
+            String empty_string = "";
+            <#else>
+                <#list variables as var>
+                    <#if var.getScope().name() == "GLOBAL_WORLD">
+           ${getJavaType(var.getType()!)} ${var.getName()} = <#if var.getType().getJavaType(generator.getWorkspace()) == "String">"${var.value!var.getType().getDefaultValue(generator.getWorkspace())}"<#else>${var.value!var.getType().getDefaultValue(generator.getWorkspace())}</#if>;
+                    </#if>
+                </#list>
+            </#if>
+
+            WorldVariables build() {
+                return new WorldVariables(
+                    <#if !w.hasVariablesOfScope("GLOBAL_WORLD")>
+                    empty_string
+                    <#else>
+                        <#assign first = true>
+                        <#list variables as var>
+                            <#if var.getScope().name() == "GLOBAL_WORLD">
+                                <#if !first>, </#if>${var.getName()}
+                                <#assign first = false>
+                            </#if>
+                        </#list>
+                    </#if>
+                );
+            }
+        }
 
         public static final SavedDataType<WorldVariables> TYPE = new SavedDataType<>(
             DATA_NAME,
@@ -165,11 +225,7 @@ import com.mojang.serialization.Codec;
             <#else>
                 <#list variables as var>
                     <#if var.getScope().name() == "GLOBAL_WORLD">
-                <#if var.getType().getName() == "number" || var.getType().getName() == "logic">
-                        this.${var.getName()} = ${var.getName()};
-                        <#else>
-                        this.${var.getName()} = ${var.getName()} != null ? ${var.getName()} : ${getDefaultValue(var.getType())};
-                        </#if>
+                this.${var.getName()} = ${var.getName()};
                     </#if>
                 </#list>
             </#if>
@@ -205,7 +261,7 @@ import com.mojang.serialization.Codec;
         }
     }
 
-    public static class MapVariables extends SavedData {
+   public static class MapVariables extends SavedData {
         public static final String DATA_NAME = "${modid}_mapvars";
 
         <#if !w.hasVariablesOfScope("GLOBAL_MAP")>
@@ -218,21 +274,80 @@ import com.mojang.serialization.Codec;
             </#list>
         </#if>
 
-        public static final Codec<MapVariables> CODEC = RecordCodecBuilder.create(instance -> instance
-            .group(
-                <#assign first = true>
+        public static final Codec<MapVariables> CODEC = new Codec<MapVariables>() {
+            @Override
+            public <T> DataResult<Pair<MapVariables, T>> decode(DynamicOps<T> ops, T input) {
+                return ops.getMap(input).flatMap(map -> {
+                    Builder builder = new Builder();
+
+                    <#if !w.hasVariablesOfScope("GLOBAL_MAP")>
+                    DataResult<String> emptyStringResult = ops.getStringValue(map.get("empty_string"));
+                    if (emptyStringResult.result().isEmpty()) {
+                        return DataResult.error(() -> "Missing or invalid 'empty_string' field");
+                    }
+                    builder.empty_string = emptyStringResult.result().get();
+                    <#else>
+                        <#assign first = true>
+                        <#list variables as var>
+                            <#if var.getScope().name() == "GLOBAL_MAP">
+                    ${getCodecType(var.getType())}.decode(ops, map.get("${var.getName()}"))
+                        .result().ifPresent(v -> builder.${var.getName()} = v.getFirst());
+                                <#assign first = false>
+                            </#if>
+                        </#list>
+                    </#if>
+
+                    return DataResult.success(Pair.of(builder.build(), ops.empty()));
+                });
+            }
+
+            @Override
+            public <T> DataResult<T> encode(MapVariables input, DynamicOps<T> ops, T prefix) {
+                RecordBuilder<T> recordBuilder = ops.mapBuilder();
+
                 <#if !w.hasVariablesOfScope("GLOBAL_MAP")>
-                    Codec.STRING.fieldOf("empty_string").forGetter(mv -> mv.empty_string)
+                recordBuilder.add("empty_string", ops.createString(input.empty_string));
                 <#else>
+                    <#assign first = true>
                     <#list variables as var>
                         <#if var.getScope().name() == "GLOBAL_MAP">
-                            <#if !first>, </#if>${getCodecType(var.getType())}.fieldOf("${var.getName()}").forGetter(mv -> mv.${var.getName()})
+                recordBuilder.add("${var.getName()}", ${getCodecType(var.getType())}.encode(input.${var.getName()}, ops, ops.empty()));
                             <#assign first = false>
                         </#if>
                     </#list>
                 </#if>
-            ).apply(instance, MapVariables::new)
-        );
+
+                return recordBuilder.build(prefix);
+            }
+        };
+
+        private static class Builder {
+            <#if !w.hasVariablesOfScope("GLOBAL_MAP")>
+            String empty_string = "";
+            <#else>
+                <#list variables as var>
+                    <#if var.getScope().name() == "GLOBAL_MAP">
+            ${getJavaType(var.getType()!)} ${var.getName()} = <#if var.getType().getJavaType(generator.getWorkspace()) == "String">"${var.value!var.getType().getDefaultValue(generator.getWorkspace())}"<#else>${var.value!var.getType().getDefaultValue(generator.getWorkspace())}</#if>;
+                    </#if>
+                </#list>
+            </#if>
+
+            MapVariables build() {
+                return new MapVariables(
+                    <#if !w.hasVariablesOfScope("GLOBAL_MAP")>
+                    empty_string
+                    <#else>
+                        <#assign first = true>
+                        <#list variables as var>
+                            <#if var.getScope().name() == "GLOBAL_MAP">
+                                <#if !first>, </#if>${var.getName()}
+                                <#assign first = false>
+                            </#if>
+                        </#list>
+                    </#if>
+                );
+            }
+        }
 
         public static final SavedDataType<MapVariables> TYPE = new SavedDataType<>(
             DATA_NAME,
@@ -271,11 +386,7 @@ import com.mojang.serialization.Codec;
             <#else>
                 <#list variables as var>
                     <#if var.getScope().name() == "GLOBAL_MAP">
-                <#if var.getType().getName() == "number" || var.getType().getName() == "logic">
-                        this.${var.getName()} = ${var.getName()};
-                        <#else>
-                        this.${var.getName()} = ${var.getName()} != null ? ${var.getName()} : <#if var.getType().getName() == "itemstack">ItemStack.EMPTY<#else>${getDefaultValue(var.getType())}</#if>;
-                        </#if>
+                this.${var.getName()} = ${var.getName()};
                     </#if>
                 </#list>
             </#if>

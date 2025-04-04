@@ -2,7 +2,7 @@
 <#function getCodecType type>
   <#switch type?lower_case>
     <#case "string"><#return "Codec.STRING">
-    <#case "number"><#return "Codec.INT">
+    <#case "number"><#return "Codec.DOUBLE">
     <#case "logic"><#return "Codec.BOOL">
     <#case "itemstack"><#return "ItemStack.CODEC">
     <#case "direction"><#return "Direction.CODEC">
@@ -14,7 +14,7 @@
 <#function getJavaType type>
   <#switch type?lower_case>
     <#case "string"><#return "String">
-    <#case "number"><#return "int">
+    <#case "number"><#return "double">
     <#case "logic"><#return "boolean">
     <#case "itemstack"><#return "ItemStack">
     <#case "direction"><#return "Direction">
@@ -34,4 +34,25 @@
     <#default><#return "null">
   </#switch>
 </#function>
+
+<#function formatVariableValue var>
+  <#local value = var.value!>
+  <#local defaultValue = var.getType().getDefaultValue(generator.getWorkspace())>
+  <#local javaType = var.getType().getJavaType(generator.getWorkspace())>
+
+  <#if !value??>
+    <#local value = defaultValue>
+  </#if>
+
+  <#if javaType == "String">
+    <#if !value?starts_with('"') && !value?ends_with('"')>
+      <#return "\"${value}\"">
+    <#else>
+      <#return value>
+    </#if>
+  <#else>
+    <#return value>
+  </#if>
+</#function>
+
 <#-- @formatter:on -->
