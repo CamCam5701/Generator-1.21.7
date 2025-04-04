@@ -245,7 +245,7 @@ import com.mojang.serialization.Codec;
                 <#assign first = true>
                 <#list variables as var>
                     <#if var.getScope().name() == "GLOBAL_WORLD">
-                        <#if !first>, </#if>${getDefaultValue(var.getType()!)?default("\"\"")}
+                        <#if !first>, </#if><#if var.getType().getJavaType(generator.getWorkspace()) == "String">"${var.value!var.getType().getDefaultValue(generator.getWorkspace())}"<#else>${var.value!var.getType().getDefaultValue(generator.getWorkspace())}</#if>
                         <#assign first = false>
                     </#if>
                 </#list>
@@ -406,7 +406,7 @@ import com.mojang.serialization.Codec;
                 <#assign first = true>
                 <#list variables as var>
                     <#if var.getScope().name() == "GLOBAL_MAP">
-                        <#if !first>, </#if>${getDefaultValue(var.getType()!)?default("\"\"")}
+                        <#if !first>, </#if><#if var.getType().getJavaType(generator.getWorkspace()) == "String">"${var.value!var.getType().getDefaultValue(generator.getWorkspace())}"<#else>${var.value!var.getType().getDefaultValue(generator.getWorkspace())}</#if>
                         <#assign first = false>
                     </#if>
                 </#list>
