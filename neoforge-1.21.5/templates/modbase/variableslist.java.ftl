@@ -274,7 +274,7 @@ import com.mojang.serialization.Codec;
                 <#if var.getType().getName() == "number" || var.getType().getName() == "logic">
                         this.${var.getName()} = ${var.getName()};
                         <#else>
-                        this.${var.getName()} = ${var.getName()} != null ? ${var.getName()} : ${getDefaultValue(var.getType())};
+                        this.${var.getName()} = ${var.getName()} != null ? ${var.getName()} : <#if var.getType().getName() == "itemstack">ItemStack.EMPTY<#else>${getDefaultValue(var.getType())}</#if>;
                         </#if>
                     </#if>
                 </#list>
