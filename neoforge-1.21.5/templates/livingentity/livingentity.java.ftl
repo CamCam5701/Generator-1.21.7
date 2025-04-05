@@ -287,7 +287,7 @@ public class ${name}Entity extends ${extendsClass} <#if data.ranged>implements R
     </#if>
 
 	<#if hasProcedure(data.whenMobFalls) || data.flyingMob>
-	@Override public boolean causeFallDamage(float l, float d, DamageSource source) {
+	@Override public boolean causeFallDamage(double l, float d, DamageSource source) {
 		<#if hasProcedure(data.whenMobFalls)>
 			<@procedureCode data.whenMobFalls, {
 				"x": "this.getX()",

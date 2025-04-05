@@ -1,5 +1,7 @@
 1.8:
+- Bump NeoForge to 21.5.24-beta
 - Added GLOBAL_MAP and GLOBAL_WORLD type for global variables (itemstack temporarily does not support this type)
+- [Bugfix] More fixes and improvements
 
 1.7:
 - Bump NeoForge to 21.5.23-beta

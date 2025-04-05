@@ -7,7 +7,7 @@
               <#if !data.background?has_content || data.background == "Default">
                   "background": "minecraft:textures/block/stone.png",
               <#else>
-                  "background": "${modid}:textures/screens/${data.background}",
+                  "background": "${modid}:screens/${data.background?replace(".png", '')}",
               </#if>
           </#if>
           "icon": {
