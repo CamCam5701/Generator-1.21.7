@@ -15,10 +15,12 @@ import com.mojang.serialization.Codec;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD) public class ${JavaModName}Variables {
 
+   <#if w.hasVariablesOfScope("GLOBAL_WORLD") || w.hasVariablesOfScope("GLOBAL_MAP")>
     public static void registerEventHandlers() {
         NeoForge.EVENT_BUS.addListener(GameEventHandler::onWorldCreate);
         NeoForge.EVENT_BUS.addListener(GameEventHandler::onWorldLoad);
     }
+    </#if>
 
     public static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES = DeferredRegister.create(NeoForgeRegistries.Keys.ATTACHMENT_TYPES, ${JavaModName}.MODID);
 
