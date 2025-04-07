@@ -1,7 +1,7 @@
-1.8.1:
-- [Bugfix] Fixed a bug that could cause global variables to cause compilation errors
+1.9:
+- [Bugfix] Fixed some triggers and procedures
 
-1.8:
+1.8.x:
 - Bump NeoForge to 21.5.24-beta
 - Added GLOBAL_MAP and GLOBAL_WORLD type for global variables (itemstack temporarily does not support this type)
 - [Bugfix] More fixes and improvements

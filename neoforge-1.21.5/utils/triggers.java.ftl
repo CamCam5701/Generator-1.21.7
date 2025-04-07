@@ -150,7 +150,6 @@
 @Override public void inventoryTick(ItemStack itemstack, ServerLevel world, Entity entity, EquipmentSlot slot) {
 	super.inventoryTick(itemstack, world, entity, slot);
 	<#if hasProcedure(inUseProcedure)>
-	if (selected)
 		<@procedureCode inUseProcedure, {
 			"x": "entity.getX()",
 			"y": "entity.getY()",
@@ -274,8 +273,8 @@
 
 <#macro onEntityCollides procedure="">
 <#if hasProcedure(procedure)>
-@Override public void entityInside(BlockState blockstate, Level world, BlockPos pos, Entity entity) {
-	super.entityInside(blockstate, world, pos, entity);
+@Override public void entityInside(BlockState blockstate, Level world, BlockPos pos, Entity entity, InsideBlockEffectApplier applier) {
+	super.entityInside(blockstate, world, pos, entity, applier);
 	<@procedureCode procedure, {
 		"x": "pos.getX()",
 		"y": "pos.getY()",
