@@ -85,6 +85,9 @@ public class ${name}Item extends ${data.toolType?replace("Spade", " ")?replace("
 			<#if data.toolType == "MultiTool">
 			.tool(TOOL_MATERIAL, BlockTags.MINEABLE_WITH_PICKAXE, ${data.damageVsEntity - 1}f, ${data.attackSpeed - 4}f, 1f)
 			</#if>
+			<#if data.toolType == "Shield">
+			.component(DataComponents.BLOCKS_ATTACKS, createShieldBlockingComponent())
+			</#if>
 				<#if (data.usageCount != 0) && (data.toolType == "Shears" || data.toolType == "Shield")>
 				.durability(${data.usageCount})
 				</#if>
@@ -107,6 +110,31 @@ public class ${name}Item extends ${data.toolType?replace("Spade", " ")?replace("
 				</#if>
 		);
 	}
+
+			<#if data.toolType == "Shield">
+	private static BlocksAttacks createShieldBlockingComponent() {
+		return new BlocksAttacks(
+				1.2f,
+				0.5f,
+				List.of(
+						new BlocksAttacks.DamageReduction(
+								90.0f,
+								Optional.empty(),
+								0.0f,
+								1.0f
+						)
+				),
+				new BlocksAttacks.ItemDamageFunction(
+						4.0f,
+						1.0f,
+						1.0f
+				),
+				Optional.of(DamageTypeTags.BYPASSES_SHIELD),
+				Optional.of(SoundEvents.SHIELD_BLOCK),
+				Optional.of(SoundEvents.SHIELD_BREAK)
+		);
+	}
+			</#if>
 
 	<#if (data.usageCount == 0) && (data.toolType == "Pickaxe" || data.toolType == "Axe" || data.toolType == "Sword" || data.toolType == "Spade" || data.toolType == "Hoe" || data.toolType == "MultiTool")>
 	@SubscribeEvent public static void handleToolDamage(ModifyDefaultComponentsEvent event) {

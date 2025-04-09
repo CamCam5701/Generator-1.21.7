@@ -1,4 +1,5 @@
 1.9:
+- [Bugfix] Fixed a bug that caused the shield to not work
 - [Bugfix] Fixed some triggers and procedures
 
 1.8.x:
