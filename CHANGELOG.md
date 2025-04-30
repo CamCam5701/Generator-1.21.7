@@ -1,3 +1,6 @@
+1.9.1:
+- Bump NeoForge to 21.5.58-beta
+
 1.9:
 - [Bugfix] Fixed a bug that caused the shield to not work
 - [Bugfix] Fixed some triggers and procedure blocks
