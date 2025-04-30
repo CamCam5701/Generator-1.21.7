@@ -1,3 +1,7 @@
+1.10:
+- [Bugfix] Fixed a bug that caused the get item type procedure block not to work
+- [Bugfix] Fixed a bug that caused axe, shovel and hoe tools to work incorrectly
+
 1.9.1:
 - Bump NeoForge to 21.5.58-beta
 

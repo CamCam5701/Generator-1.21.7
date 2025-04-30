@@ -1,2 +1,3 @@
 <#include "mcitems.ftl">
-(${mappedMCItemToItem(input$item)} instanceof ${generator.map(field$item_type, "itemtypes")}Item)
+<#include "mcelements.ftl">
+(${mappedMCItemToItemStackCode(input$item, 1)}.is(${generator.map(field$item_type, "itemtypes")}))
