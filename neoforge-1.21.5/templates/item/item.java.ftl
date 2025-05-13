@@ -77,7 +77,7 @@ public class ${name}Item extends <#if data.hasBannerPatterns()>BannerPattern</#i
 				</#if>
 				<#if data.stayInGridWhenCrafting && (!data.recipeRemainder?? || data.recipeRemainder.isEmpty()) && data.damageCount != 0>
 				.setNoCombineRepair()
-				</#if
+				</#if>
 		);
 	}
 
@@ -105,7 +105,6 @@ public class ${name}Item extends <#if data.hasBannerPatterns()>BannerPattern</#i
 			@Override public ItemStack getCraftingRemainder(ItemStack itemstack) {
 				return new ItemStack(this);
 			}
-
 		</#if>
 	</#if>
 
