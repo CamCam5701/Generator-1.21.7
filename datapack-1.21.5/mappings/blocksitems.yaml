@@ -79,9 +79,6 @@ Blocks.PLANKS#4:
 Blocks.PLANKS#5:
   - Blocks.DARK_OAK_PLANKS
   - "dark_oak_planks"
-Blocks.PALE_OAK_PLANKS:
-  - Blocks.PALE_OAK_PLANKS
-  - "pale_oak_planks"
 Blocks.MANGROVE_PLANKS:
   - Blocks.MANGROVE_PLANKS
   - "mangrove_planks"
@@ -115,9 +112,6 @@ Blocks.SAPLING#4:
 Blocks.SAPLING#5:
   - Blocks.DARK_OAK_SAPLING
   - "dark_oak_sapling"
-Blocks.PALE_OAK_SAPLING:
-  - Blocks.PALE_OAK_SAPLING
-  - "pale_oak_sapling"
 Blocks.MANGROVE_PROPAGULE:
   - Blocks.MANGROVE_PROPAGULE
   - "mangrove_propagule"
@@ -148,15 +142,9 @@ Blocks.GRAVEL:
 Blocks.SUSPICIOUS_GRAVEL:
   - Blocks.SUSPICIOUS_GRAVEL
   - "suspicious_gravel"
-Blocks.FLOWING_WATER:
-  - Blocks.WATER
-  - "water"
 Blocks.WATER:
   - Blocks.WATER
   - "water"
-Blocks.FLOWING_LAVA:
-  - Blocks.LAVA
-  - "lava"
 Blocks.LAVA:
   - Blocks.LAVA
   - "lava"
@@ -173,9 +161,6 @@ Blocks.IRON_ORE:
   - Blocks.IRON_ORE
   - "iron_ore"
 Blocks.REDSTONE_ORE:
-  - Blocks.REDSTONE_ORE
-  - "redstone_ore"
-Blocks.LIT_REDSTONE_ORE:
   - Blocks.REDSTONE_ORE
   - "redstone_ore"
 Blocks.GOLD_ORE:
@@ -274,18 +259,12 @@ Blocks.LOG#2:
 Blocks.LOG#3:
   - Blocks.JUNGLE_LOG
   - "jungle_log"
-Blocks.LOG2:
-  - Blocks.ACACIA_LOG
-  - "#minecraft:logs"
 Blocks.LOG2#0:
   - Blocks.ACACIA_LOG
   - "acacia_log"
 Blocks.LOG2#1:
   - Blocks.DARK_OAK_LOG
   - "dark_oak_log"
-Blocks.PALE_OAK_LOG:
-  - Blocks.PALE_OAK_LOG
-  - "pale_oak_log"
 Blocks.MANGROVE_LOG:
   - Blocks.MANGROVE_LOG
   - "mangrove_log"
@@ -310,18 +289,12 @@ Blocks.LEAVES#2:
 Blocks.LEAVES#3:
   - Blocks.JUNGLE_LEAVES
   - "jungle_leaves"
-Blocks.LEAVES2:
-  - Blocks.ACACIA_LEAVES
-  - "#minecraft:leaves"
 Blocks.LEAVES2#0:
   - Blocks.ACACIA_LEAVES
   - "acacia_leaves"
 Blocks.LEAVES2#1:
   - Blocks.DARK_OAK_LEAVES
   - "dark_oak_leaves"
-Blocks.PALE_OAK_LEAVES:
-  - Blocks.PALE_OAK_LEAVES
-  - "pale_oak_leaves"
 Blocks.AZALEA_LEAVES:
   - Blocks.AZALEA_LEAVES
   - "azalea_leaves"
@@ -397,12 +370,6 @@ Blocks.WEB:
 Blocks.DEADBUSH:
   - Blocks.DEAD_BUSH
   - "dead_bush"
-Blocks.TALLGRASS:
-  - Blocks.SHORT_GRASS
-  - "short_grass"
-Blocks.TALLGRASS#0:
-  - Blocks.DEAD_BUSH
-  - "dead_bush"
 Blocks.TALLGRASS#1:
   - Blocks.SHORT_GRASS
   - "short_grass"
@@ -457,12 +424,6 @@ Blocks.RED_FLOWER#8:
 Blocks.TORCHFLOWER:
   - Blocks.TORCHFLOWER
   - "torchflower"
-Blocks.OPEN_EYEBLOSSOM:
-  - Blocks.OPEN_EYEBLOSSOM
-  - "open_eyeblossom"
-Blocks.CLOSED_EYEBLOSSOM:
-  - Blocks.CLOSED_EYEBLOSSOM
-  - "closed_eyeblossom"
 Blocks.PINK_PETALS:
   - Blocks.PINK_PETALS
   - "pink_petals"
@@ -523,9 +484,6 @@ Blocks.FIRE:
 Blocks.MOB_SPAWNER:
   - Blocks.SPAWNER
   - "spawner"
-Blocks.CREAKING_HEART:
-  - Blocks.CREAKING_HEART
-  - "creaking_heart"
 Blocks.OAK_STAIRS:
   - Blocks.OAK_STAIRS
   - "oak_stairs"
@@ -544,9 +502,6 @@ Blocks.ACACIA_STAIRS:
 Blocks.DARK_OAK_STAIRS:
   - Blocks.DARK_OAK_STAIRS
   - "dark_oak_stairs"
-Blocks.PALE_OAK_STAIRS:
-  - Blocks.PALE_OAK_STAIRS
-  - "pale_oak_stairs"
 Blocks.MANGROVE_STAIRS:
   - Blocks.MANGROVE_STAIRS
   - "mangrove_stairs"
@@ -628,9 +583,6 @@ Blocks.ACACIA_DOOR:
 Blocks.DARK_OAK_DOOR:
   - Blocks.DARK_OAK_DOOR
   - "dark_oak_door"
-Blocks.PALE_OAK_DOOR:
-  - Blocks.PALE_OAK_DOOR
-  - "pale_oak_door"
 Blocks.MANGROVE_DOOR:
   - Blocks.MANGROVE_DOOR
   - "mangrove_door"
@@ -754,13 +706,7 @@ Blocks.TRIPWIRE:
 Blocks.DAYLIGHT_DETECTOR:
   - Blocks.DAYLIGHT_DETECTOR
   - "daylight_detector"
-Blocks.DAYLIGHT_DETECTOR_INVERTED:
-  - Blocks.DAYLIGHT_DETECTOR
-  - "daylight_detector"
 Blocks.REDSTONE_TORCH:
-  - Blocks.REDSTONE_TORCH
-  - "redstone_torch"
-Blocks.UNLIT_REDSTONE_TORCH:
   - Blocks.REDSTONE_TORCH
   - "redstone_torch"
 Blocks.REDSTONE_WIRE:
@@ -769,19 +715,10 @@ Blocks.REDSTONE_WIRE:
 Blocks.UNPOWERED_REPEATER:
   - Blocks.REPEATER
   - "repeater"
-Blocks.POWERED_REPEATER:
-  - Blocks.REPEATER
-  - "repeater"
 Blocks.UNPOWERED_COMPARATOR:
   - Blocks.COMPARATOR
   - "comparator"
-Blocks.POWERED_COMPARATOR:
-  - Blocks.COMPARATOR
-  - "comparator"
 Blocks.REDSTONE_LAMP:
-  - Blocks.REDSTONE_LAMP
-  - "redstone_lamp"
-Blocks.LIT_REDSTONE_LAMP:
   - Blocks.REDSTONE_LAMP
   - "redstone_lamp"
 Blocks.DISPENSER:
@@ -847,9 +784,6 @@ Blocks.ACACIA_FENCE:
 Blocks.DARK_OAK_FENCE:
   - Blocks.DARK_OAK_FENCE
   - "dark_oak_fence"
-Blocks.PALE_OAK_FENCE:
-  - Blocks.PALE_OAK_FENCE
-  - "pale_oak_fence"
 Blocks.MANGROVE_FENCE:
   - Blocks.MANGROVE_FENCE
   - "mangrove_fence"
@@ -877,9 +811,6 @@ Blocks.ACACIA_FENCE_GATE:
 Blocks.DARK_OAK_FENCE_GATE:
   - Blocks.DARK_OAK_FENCE_GATE
   - "dark_oak_fence_gate"
-Blocks.PALE_OAK_FENCE_GATE:
-  - Blocks.PALE_OAK_FENCE_GATE
-  - "pale_oak_fence_gate"
 Blocks.MANGROVE_FENCE_GATE:
   - Blocks.MANGROVE_FENCE_GATE
   - "mangrove_fence_gate"
@@ -961,27 +892,6 @@ Blocks.GLOW_LICHEN:
 Blocks.WATERLILY:
   - Blocks.LILY_PAD
   - "lily_pad"
-Blocks.RESIN_CLUMP:
-  - Blocks.RESIN_CLUMP
-  - "resin_clump"
-Blocks.RESIN_BLOCK:
-  - Blocks.RESIN_BLOCK
-  - "resin_block"
-Blocks.RESIN_BRICKS:
-  - Blocks.RESIN_BRICKS
-  - "resin_bricks"
-Blocks.RESIN_BRICK_STAIRS:
-  - Blocks.RESIN_BRICK_STAIRS
-  - "resin_brick_stairs"
-Blocks.RESIN_BRICK_SLAB:
-  - Blocks.RESIN_BRICK_SLAB
-  - "resin_brick_slab"
-Blocks.RESIN_BRICK_WALL:
-  - Blocks.RESIN_BRICK_WALL
-  - "resin_brick_wall"
-Blocks.CHISELED_RESIN_BRICKS:
-  - Blocks.CHISELED_RESIN_BRICKS
-  - "chiseled_resin_bricks"
 Blocks.ENCHANTING_TABLE:
   - Blocks.ENCHANTING_TABLE
   - "enchanting_table"
@@ -1025,9 +935,6 @@ Blocks.PURPUR_PILLAR:
   - Blocks.PURPUR_PILLAR
   - "purpur_pillar"
 Blocks.PURPUR_SLAB:
-  - Blocks.PURPUR_SLAB
-  - "purpur_slab"
-Blocks.PURPUR_DOUBLE_SLAB:
   - Blocks.PURPUR_SLAB
   - "purpur_slab"
 Blocks.BEETROOTS:
@@ -1087,9 +994,6 @@ Blocks.WOODEN_SLAB#4:
 Blocks.WOODEN_SLAB#5:
   - Blocks.DARK_OAK_SLAB
   - "dark_oak_slab"
-Blocks.PALE_OAK_SLAB:
-  - Blocks.PALE_OAK_SLAB
-  - "pale_oak_slab"
 Blocks.MANGROVE_SLAB:
   - Blocks.MANGROVE_SLAB
   - "mangrove_slab"
@@ -1099,7 +1003,6 @@ Blocks.CHERRY_SLAB:
 Blocks.BAMBOO_SLAB:
   - Blocks.BAMBOO_SLAB
   - "bamboo_slab"
-
 Blocks.BAMBOO_MOSAIC_SLAB:
   - Blocks.BAMBOO_MOSAIC_SLAB
   - "bamboo_mosaic_slab"
@@ -1685,18 +1588,6 @@ Blocks.STRUCTURE_VOID:
 Blocks.STRUCTURE_BLOCK:
   - Blocks.STRUCTURE_BLOCK
   - "structure_block"
-Blocks.STRUCTURE_BLOCK#1:
-  - Blocks.STRUCTURE_BLOCK
-  - "structure_block"
-Blocks.STRUCTURE_BLOCK#2:
-  - Blocks.STRUCTURE_BLOCK
-  - "structure_block"
-Blocks.STRUCTURE_BLOCK#3:
-  - Blocks.STRUCTURE_BLOCK
-  - "structure_block"
-Blocks.STRUCTURE_BLOCK#4:
-  - Blocks.STRUCTURE_BLOCK
-  - "structure_block"
 Blocks.NORMAL_STONE_STAIRS:
   - Blocks.STONE_STAIRS
   - "stone_stairs"
@@ -1739,9 +1630,6 @@ Blocks.STRIPPED_ACACIA_LOG:
 Blocks.STRIPPED_DARK_OAK_LOG:
   - Blocks.STRIPPED_DARK_OAK_LOG
   - "stripped_dark_oak_log"
-Blocks.STRIPPED_PALE_OAK_LOG:
-  - Blocks.STRIPPED_PALE_OAK_LOG
-  - "stripped_pale_oak_log"
 Blocks.STRIPPED_OAK_LOG:
   - Blocks.STRIPPED_OAK_LOG
   - "stripped_oak_log"
@@ -1772,9 +1660,6 @@ Blocks.ACACIA_WOOD:
 Blocks.DARK_OAK_WOOD:
   - Blocks.DARK_OAK_WOOD
   - "dark_oak_wood"
-Blocks.PALE_OAK_WOOD:
-  - Blocks.PALE_OAK_WOOD
-  - "pale_oak_wood"
 Blocks.MANGROVE_WOOD:
   - Blocks.MANGROVE_WOOD
   - "mangrove_wood"
@@ -1799,9 +1684,6 @@ Blocks.STRIPPED_ACACIA_WOOD:
 Blocks.STRIPPED_DARK_OAK_WOOD:
   - Blocks.STRIPPED_DARK_OAK_WOOD
   - "stripped_dark_oak_wood"
-Blocks.STRIPPED_PALE_OAK_WOOD:
-  - Blocks.STRIPPED_PALE_OAK_WOOD
-  - "stripped_pale_oak_wood"
 Blocks.STRIPPED_MANGROVE_WOOD:
   - Blocks.STRIPPED_MANGROVE_WOOD
   - "stripped_mangrove_wood"
@@ -1886,9 +1768,6 @@ Blocks.JUNGLE_SIGN:
 Blocks.DARK_OAK_SIGN:
   - Blocks.DARK_OAK_SIGN
   - "dark_oak_sign"
-Blocks.PALE_OAK_SIGN:
-  - Blocks.PALE_OAK_SIGN
-  - "pale_oak_sign"
 Blocks.MANGROVE_SIGN:
   - Blocks.MANGROVE_SIGN
   - "mangrove_sign"
@@ -1913,9 +1792,6 @@ Blocks.JUNGLE_WALL_SIGN:
 Blocks.DARK_OAK_WALL_SIGN:
   - Blocks.DARK_OAK_WALL_SIGN
   - "dark_oak_wall_sign"
-Blocks.PALE_OAK_WALL_SIGN:
-  - Blocks.PALE_OAK_WALL_SIGN
-  - "pale_oak_wall_sign"
 Blocks.MANGROVE_WALL_SIGN:
   - Blocks.MANGROVE_WALL_SIGN
   - "mangrove_wall_sign"
@@ -1943,9 +1819,6 @@ Blocks.JUNGLE_HANGING_SIGN:
 Blocks.DARK_OAK_HANGING_SIGN:
   - Blocks.DARK_OAK_HANGING_SIGN
   - "dark_oak_hanging_sign"
-Blocks.PALE_OAK_HANGING_SIGN:
-  - Blocks.PALE_OAK_HANGING_SIGN
-  - "pale_oak_hanging_sign"
 Blocks.CRIMSON_HANGING_SIGN:
   - Blocks.CRIMSON_HANGING_SIGN
   - "crimson_hanging_sign"
@@ -1979,9 +1852,6 @@ Blocks.JUNGLE_WALL_HANGING_SIGN:
 Blocks.DARK_OAK_WALL_HANGING_SIGN:
   - Blocks.DARK_OAK_WALL_HANGING_SIGN
   - "dark_oak_wall_hanging_sign"
-Blocks.PALE_OAK_WALL_HANGING_SIGN:
-  - Blocks.PALE_OAK_WALL_HANGING_SIGN
-  - "pale_oak_wall_hanging_sign"
 Blocks.CRIMSON_WALL_HANGING_SIGN:
   - Blocks.CRIMSON_WALL_HANGING_SIGN
   - "crimson_wall_hanging_sign"
@@ -2012,9 +1882,6 @@ Blocks.ACACIA_PRESSURE_PLATE:
 Blocks.DARK_OAK_PRESSURE_PLATE:
   - Blocks.DARK_OAK_PRESSURE_PLATE
   - "dark_oak_pressure_plate"
-Blocks.PALE_OAK_PRESSURE_PLATE:
-  - Blocks.PALE_OAK_PRESSURE_PLATE
-  - "pale_oak_pressure_plate"
 Blocks.MANGROVE_PRESSURE_PLATE:
   - Blocks.MANGROVE_PRESSURE_PLATE
   - "mangrove_pressure_plate"
@@ -2045,9 +1912,6 @@ Blocks.ACACIA_TRAPDOOR:
 Blocks.DARK_OAK_TRAPDOOR:
   - Blocks.DARK_OAK_TRAPDOOR
   - "dark_oak_trapdoor"
-Blocks.PALE_OAK_TRAPDOOR:
-  - Blocks.PALE_OAK_TRAPDOOR
-  - "pale_oak_trapdoor"
 Blocks.MANGROVE_TRAPDOOR:
   - Blocks.MANGROVE_TRAPDOOR
   - "mangrove_trapdoor"
@@ -2084,9 +1948,6 @@ Blocks.POTTED_ACACIA_SAPLING:
 Blocks.POTTED_DARK_OAK_SAPLING:
   - Blocks.POTTED_DARK_OAK_SAPLING
   - "potted_dark_oak_sapling"
-Blocks.POTTED_PALE_OAK_SAPLING:
-  - Blocks.POTTED_PALE_OAK_SAPLING
-  - "potted_pale_oak_sapling"
 Blocks.POTTED_FERN:
   - Blocks.POTTED_FERN
   - "potted_fern"
@@ -2156,9 +2017,6 @@ Blocks.ACACIA_BUTTON:
 Blocks.DARK_OAK_BUTTON:
   - Blocks.DARK_OAK_BUTTON
   - "dark_oak_button"
-Blocks.PALE_OAK_BUTTON:
-  - Blocks.PALE_OAK_BUTTON
-  - "pale_oak_button"
 Blocks.MANGROVE_BUTTON:
   - Blocks.MANGROVE_BUTTON
   - "mangrove_button"
@@ -3234,15 +3092,6 @@ Blocks.MOSS_CARPET:
 Blocks.MOSS_BLOCK:
   - Blocks.MOSS_BLOCK
   - "moss_block"
-Blocks.PALE_MOSS_CARPET:
-  - Blocks.PALE_MOSS_CARPET
-  - "pale_moss_carpet"
-Blocks.PALE_HANGING_MOSS:
-  - Blocks.PALE_HANGING_MOSS
-  - "pale_hanging_moss"
-Blocks.PALE_MOSS_BLOCK:
-  - Blocks.PALE_MOSS_BLOCK
-  - "pale_moss_block"
 Blocks.BIG_DRIPLEAF:
   - Blocks.BIG_DRIPLEAF
   - "big_dripleaf"
@@ -3378,12 +3227,6 @@ Blocks.POTTED_CHERRY_SAPLING:
 Blocks.POTTED_TORCHFLOWER:
   - Blocks.POTTED_TORCHFLOWER
   - "potted_torchflower"
-Blocks.POTTED_OPEN_EYEBLOSSOM:
-  - Blocks.POTTED_OPEN_EYEBLOSSOM
-  - "potted_open_eyeblossom"
-Blocks.POTTED_CLOSED_EYEBLOSSOM:
-  - Blocks.POTTED_CLOSED_EYEBLOSSOM
-  - "potted_closed_eyeblossom"
 Blocks.DECORATED_POT:
   - Blocks.DECORATED_POT
   - "decorated_pot"
@@ -3795,9 +3638,6 @@ Items.ACACIA_DOOR:
 Items.DARK_OAK_DOOR:
   - Items.DARK_OAK_DOOR
   - "dark_oak_door"
-Items.PALE_OAK_DOOR:
-  - Items.PALE_OAK_DOOR
-  - "pale_oak_door"
 Items.MANGROVE_DOOR:
   - Items.MANGROVE_DOOR
   - "mangrove_door"
@@ -3888,9 +3728,6 @@ Items.ACACIA_BOAT:
 Items.DARK_OAK_BOAT:
   - Items.DARK_OAK_BOAT
   - "dark_oak_boat"
-Items.PALE_OAK_BOAT:
-  - Items.PALE_OAK_BOAT
-  - "pale_oak_boat"
 Items.MANGROVE_BOAT:
   - Items.MANGROVE_BOAT
   - "mangrove_boat"
@@ -3918,9 +3755,6 @@ Items.ACACIA_CHEST_BOAT:
 Items.DARK_OAK_CHEST_BOAT:
   - Items.DARK_OAK_CHEST_BOAT
   - "dark_oak_chest_boat"
-Items.PALE_OAK_CHEST_BOAT:
-  - Items.PALE_OAK_CHEST_BOAT
-  - "pale_oak_chest_boat"
 Items.MANGROVE_CHEST_BOAT:
   - Items.MANGROVE_CHEST_BOAT
   - "mangrove_chest_boat"
@@ -4011,9 +3845,6 @@ Items.BRICK:
 Items.NETHERBRICK:
   - Items.NETHER_BRICK
   - "nether_brick"
-Items.RESIN_BRICK:
-  - Items.RESIN_BRICK
-  - "resin_brick"
 Items.CLAY_BALL:
   - Items.CLAY_BALL
   - "clay_ball"
@@ -4185,9 +4016,6 @@ Items.CAULDRON:
 Items.SPECKLED_MELON:
   - Items.GLISTERING_MELON_SLICE
   - "glistering_melon_slice"
-Items.SPAWN_EGG:
-  - Items.CREEPER_SPAWN_EGG
-  - "#c:eggs"
 Items.SPAWN_EGG#50:
   - Items.CREEPER_SPAWN_EGG
   - "creeper_spawn_egg"
@@ -4410,9 +4238,6 @@ Items.ACACIA_SIGN:
 Items.DARK_OAK_SIGN:
   - Items.DARK_OAK_SIGN
   - "dark_oak_sign"
-Items.PALE_OAK_SIGN:
-  - Items.PALE_OAK_SIGN
-  - "pale_oak_sign"
 Items.MANGROVE_SIGN:
   - Items.MANGROVE_SIGN
   - "mangrove_sign"
@@ -4440,9 +4265,6 @@ Items.ACACIA_HANGING_SIGN:
 Items.DARK_OAK_HANGING_SIGN:
   - Items.DARK_OAK_HANGING_SIGN
   - "dark_oak_hanging_sign"
-Items.PALE_OAK_HANGING_SIGN:
-  - Items.PALE_OAK_HANGING_SIGN
-  - "pale_oak_hanging_sign"
 Items.CRIMSON_HANGING_SIGN:
   - Items.CRIMSON_HANGING_SIGN
   - "crimson_hanging_sign"
@@ -4614,12 +4436,6 @@ Items.THING_BANNER_PATTERN:
 Items.GLOBE_BANNER_PATTERN:
   - Items.GLOBE_BANNER_PATTERN
   - "globe_banner_pattern"
-Items.FIELD_MASONED_BANNER_PATTERN:
-  - Items.FIELD_MASONED_BANNER_PATTERN
-  - "field_masoned_banner_pattern"
-Items.BORDURE_INDENTED_BANNER_PATTERN:
-  - Items.BORDURE_INDENTED_BANNER_PATTERN
-  - "bordure_indented_banner_pattern"
 Items.SWEET_BERRIES:
   - Items.SWEET_BERRIES
   - "sweet_berries"
@@ -4749,54 +4565,6 @@ Items.AMETHYST_SHARD:
 Items.BUNDLE:
   - Items.BUNDLE
   - "bundle"
-Items.WHITE_BUNDLE:
-  - Items.WHITE_BUNDLE
-  - "white_bundle"
-Items.ORANGE_BUNDLE:
-  - Items.ORANGE_BUNDLE
-  - "orange_bundle"
-Items.MAGENTA_BUNDLE:
-  - Items.MAGENTA_BUNDLE
-  - "magenta_bundle"
-Items.LIGHT_BLUE_BUNDLE:
-  - Items.LIGHT_BLUE_BUNDLE
-  - "light_blue_bundle"
-Items.YELLOW_BUNDLE:
-  - Items.YELLOW_BUNDLE
-  - "yellow_bundle"
-Items.LIME_BUNDLE:
-  - Items.LIME_BUNDLE
-  - "lime_bundle"
-Items.PINK_BUNDLE:
-  - Items.PINK_BUNDLE
-  - "pink_bundle"
-Items.GRAY_BUNDLE:
-  - Items.GRAY_BUNDLE
-  - "gray_bundle"
-Items.LIGHT_GRAY_BUNDLE:
-  - Items.LIGHT_GRAY_BUNDLE
-  - "light_gray_bundle"
-Items.CYAN_BUNDLE:
-  - Items.CYAN_BUNDLE
-  - "cyan_bundle"
-Items.PURPLE_BUNDLE:
-  - Items.PURPLE_BUNDLE
-  - "purple_bundle"
-Items.BLUE_BUNDLE:
-  - Items.BLUE_BUNDLE
-  - "blue_bundle"
-Items.BROWN_BUNDLE:
-  - Items.BROWN_BUNDLE
-  - "brown_bundle"
-Items.GREEN_BUNDLE:
-  - Items.GREEN_BUNDLE
-  - "green_bundle"
-Items.RED_BUNDLE:
-  - Items.RED_BUNDLE
-  - "red_bundle"
-Items.BLACK_BUNDLE:
-  - Items.BLACK_BUNDLE
-  - "black_bundle"
 Items.RAW_IRON:
   - Items.RAW_IRON
   - "raw_iron"
@@ -4989,6 +4757,3 @@ Items.OMINOUS_BOTTLE:
 Items.BREEZE_ROD:
   - Items.BREEZE_ROD
   - "breeze_rod"
-Items.CREAKING_SPAWN_EGG:
-  - Items.CREAKING_SPAWN_EGG
-  - "creaking_spawn_egg"
