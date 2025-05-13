@@ -1,3 +1,8 @@
+1.11: 
+- Bump NeoForge to 21.5.66-beta
+- [Bugfix] Fixed a compilation error when adding new villager trades
+- [Bugfix] Fixed a compilation error when adding a new villager profession
+
 1.10:
 - [Bugfix] Fixed a bug that caused the get item type procedure block not to work
 - [Bugfix] Fixed a bug that caused axe, shovel and hoe tools to work incorrectly
