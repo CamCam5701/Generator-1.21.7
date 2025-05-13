@@ -222,7 +222,7 @@ public class ${name}Block extends
 			<#elseif data.blockBase == "FenceGate">
 				super(WoodType.OAK, <@blockProperties/>);
 			<#else>
-		        super(<@blockProperties/>);
+				super(<@blockProperties/>);
 			</#if>
 		<#else>
 			super(<@blockProperties/>);
@@ -247,14 +247,13 @@ public class ${name}Block extends
 	    );
 		</#if>
 	}
+
 	<#if data.renderType() == 4>
     @Override protected RenderShape getRenderShape(BlockState state) {
 		return RenderShape.INVISIBLE;
 	}
 	</#if>
-	@Override public ItemStack getCloneItemStack(LevelReader world, BlockPos pos, BlockState state, boolean includeData, Player entity) {
-		return ${mappedMCItemToItemStackCode(data.creativePickItem, 1)};
-	}
+
 	<#if data.blockBase?has_content && data.blockBase == "Stairs">
    	@Override public float getExplosionResistance() {
 		return ${data.resistance}f;
@@ -429,6 +428,7 @@ public class ${name}Block extends
 		}
 		</#if>
 	</#if>
+
 	<#if hasProcedure(data.placingCondition)>
 	@Override public boolean canSurvive(BlockState blockstate, LevelReader worldIn, BlockPos pos) {
 		if (worldIn instanceof LevelAccessor world) {
