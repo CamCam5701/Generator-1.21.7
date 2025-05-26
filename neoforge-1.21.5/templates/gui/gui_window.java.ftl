@@ -174,7 +174,6 @@ public class ${name}Screen extends AbstractContainerScreen<${name}Menu> implemen
 			<#if hasProcedure(component.displayCondition)>}</#if>
 		</#list>
 
-		RenderSystem.disableBlend();
 	}
 
 	@Override public boolean keyPressed(int key, int b, int c) {
