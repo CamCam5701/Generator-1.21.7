@@ -42,6 +42,7 @@ import ${package}.${JavaModName};
 <#if hasProcedure(data.onTick)>
 @EventBusSubscriber
 </#if>
+
 public class ${name}Menu extends AbstractContainerMenu implements ${JavaModName}Menus.MenuAccessor {
 
 	public final Map<String, Object> menuState = new HashMap<>() {

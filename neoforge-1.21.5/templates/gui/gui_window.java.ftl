@@ -73,7 +73,6 @@ public class ${name}Screen extends AbstractContainerScreen<${name}Menu> implemen
 		this.imageHeight = ${data.height};
 	}
 
-
 	@Override public void updateMenuState(int elementType, String name, Object elementState) {
 		menuStateUpdateActive = true;
 
@@ -110,7 +109,6 @@ public class ${name}Screen extends AbstractContainerScreen<${name}Menu> implemen
 
 		<#compress>
 		<#list data.getComponentsOfType("EntityModel") as component>
-			<#assign hasEntityModels = true>
 			<#assign followMouse = component.followMouseMovement>
 			<#assign x = component.gx(data.width)>
 			<#assign y = component.gy(data.height)>
@@ -141,7 +139,6 @@ public class ${name}Screen extends AbstractContainerScreen<${name}Menu> implemen
 					}
 					<#else>
 						guiGraphics.renderTooltip(font, Component.translatable("gui.${modid}.${registryname}.${component.getName()}"), mouseX, mouseY);
-
 					</#if>
 				}
 		</#list>
@@ -177,6 +174,7 @@ public class ${name}Screen extends AbstractContainerScreen<${name}Menu> implemen
 			<#if hasProcedure(component.displayCondition)>}</#if>
 		</#list>
 
+		RenderSystem.disableBlend();
 	}
 
 	@Override public boolean keyPressed(int key, int b, int c) {
@@ -193,7 +191,7 @@ public class ${name}Screen extends AbstractContainerScreen<${name}Menu> implemen
 		return super.keyPressed(key, b, c);
 	}
 
-	<#if data.getComponentsOfType("TextField")?has_content>
+	<#if textFields?has_content>
 	@Override public void resize(Minecraft minecraft, int width, int height) {
 		<#list textFields as component>
 		String ${component.getName()}Value = ${component.getName()}.getValue();
@@ -231,7 +229,6 @@ public class ${name}Screen extends AbstractContainerScreen<${name}Menu> implemen
 			${component.getName()}.setHint(Component.translatable("gui.${modid}.${registryname}.${component.getName()}"));
 			</#if>
 
-			guistate.put("text:${component.getName()}", ${component.getName()});
 			this.addWidget(this.${component.getName()});
 		</#list>
 
@@ -250,7 +247,6 @@ public class ${name}Screen extends AbstractContainerScreen<${name}Menu> implemen
 					${component.width}, ${component.height}).build();
 			</#if>
 
-			guistate.put("button:${component.getName()}", ${component.getName()});
 			this.addRenderableWidget(${component.getName()});
 
 			<#assign btid +=1>
@@ -294,9 +290,7 @@ public class ${name}Screen extends AbstractContainerScreen<${name}Menu> implemen
 				if (${component.getName()}Selected)
 					menu.sendMenuStateUpdate(entity, 1, "${component.getName()}", true, false);
 			</#if>
-				.build();
 
-			guistate.put("checkbox:${component.getName()}", ${component.getName()});
 			this.addRenderableWidget(${component.getName()});
 		</#list>
 	}
