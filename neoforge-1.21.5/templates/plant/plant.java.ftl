@@ -84,7 +84,7 @@ public class ${name}Block extends ${getPlantClass(data.plantType)}Block
 				() -> BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("${data.hitSound}")),
 				() -> BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("${data.fallSound}"))
 			))
-		<#elseif data.soundOnStep != "STONE">
+		<#else>
 			.sound(SoundType.${data.soundOnStep})
 		</#if>
 		<#if data.unbreakable>
@@ -117,13 +117,7 @@ public class ${name}Block extends ${getPlantClass(data.plantType)}Block
 		<#if data.isReplaceable>
 		.replaceable()
 		</#if>
-		<#if data.ignitedByLava>
-			.ignitedByLava()
-		</#if>
-		<#if data.offsetType != "NONE">
-			.offsetType(BlockBehaviour.OffsetType.${data.offsetType})
-		</#if>
-		.pushReaction(PushReaction.DESTROY)
+		.offsetType(BlockBehaviour.OffsetType.${data.offsetType}).pushReaction(PushReaction.DESTROY)
 		);
 
 		<#if data.isWaterloggable()>
