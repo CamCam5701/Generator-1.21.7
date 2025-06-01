@@ -1,3 +1,6 @@
+1.12: 
+- Bump NeoForge to 21.5.75 (Stable)
+
 1.11: 
 - Bump NeoForge to 21.5.66-beta
 - [Bugfix] Fixed a compilation error when adding new villager trades
