@@ -29,38 +29,26 @@
 -->
 
 <#-- @formatter:off -->
-package ${package}.item.inventory;
 
-<#compress>
-@EventBusSubscriber(Dist.CLIENT) public class ${name}InventoryCapability extends ComponentItemHandler {
+package ${package}.mixin;
 
-	@SubscribeEvent @OnlyIn(Dist.CLIENT) public static void onItemDropped(ItemTossEvent event) {
-		if (event.getEntity().getItem().getItem() == ${JavaModName}Items.${REGISTRYNAME}.get()) {
-			if (Minecraft.getInstance().screen instanceof ${data.guiBoundTo}Screen) {
-				Minecraft.getInstance().player.closeContainer();
-			}
+import org.spongepowered.asm.mixin.Unique;
+
+@Mixin(NoiseGeneratorSettings.class) public class NoiseGeneratorSettingsMixin implements ${JavaModName}Biomes.${JavaModName}NoiseGeneratorSettings {
+
+	@Unique private Holder<DimensionType> ${modid}_dimensionTypeReference;
+
+	@WrapMethod(method = "surfaceRule")
+	public SurfaceRules.RuleSource surfaceRule(Operation<SurfaceRules.RuleSource> original) {
+		SurfaceRules.RuleSource retval = original.call();
+		if (this.${modid}_dimensionTypeReference != null) {
+			retval = ${JavaModName}Biomes.adaptSurfaceRule(retval, this.${modid}_dimensionTypeReference);
 		}
+		return retval;
 	}
 
-	public ${name}InventoryCapability(MutableDataComponentHolder parent) {
-		super(parent, DataComponents.CONTAINER, ${data.inventorySize});
-	}
-
-	<#if data.inventoryStackSize != 99>
-	@Override public int getSlotLimit(int slot) {
-		return ${data.inventoryStackSize};
-	}
-	</#if>
-
-	@Override public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-		return stack.getItem() != ${JavaModName}Items.${REGISTRYNAME}.get();
-	}
-
-	@Override public ItemStack getStackInSlot(int slot) {
-		return super.getStackInSlot(slot).copy();
+	@Override public void set${modid}DimensionTypeReference(Holder<DimensionType> dimensionType) {
+		this.${modid}_dimensionTypeReference = dimensionType;
 	}
 
 }
-</#compress>
-
-<#-- @formatter:on -->
