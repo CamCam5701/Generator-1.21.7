@@ -54,7 +54,7 @@ public class ${JavaModName}BlockEntities {
 	// Start of user code block custom block entities
 	// End of user code block custom block entities
 
-private static <T extends BlockEntity> DeferredHolder<BlockEntityType<?>, BlockEntityType<T>> register(String registryname, DeferredHolder<Block, Block> block, BlockEntityType.BlockEntitySupplier<T> supplier) {
+	private static <T extends BlockEntity> DeferredHolder<BlockEntityType<?>, BlockEntityType<T>> register(String registryname, DeferredHolder<Block, Block> block, BlockEntityType.BlockEntitySupplier<T> supplier) {
 		return REGISTRY.register(registryname, () -> new BlockEntityType(supplier, block.get()));
 	}
 
@@ -62,7 +62,7 @@ private static <T extends BlockEntity> DeferredHolder<BlockEntityType<?>, BlockE
 	<#compress>
 	@SubscribeEvent public static void registerCapabilities(RegisterCapabilitiesEvent event) {
 		<#list blockentitiesWithInventory as blockentity>
-			event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ${blockentity.getModElement().getRegistryNameUpper()}.get(), (blockEntity, side) -> blockEntity.getItemHandler());
+			event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ${blockentity.getModElement().getRegistryNameUpper()}.get(), SidedInvWrapper::new);
 			<#if blockentity.hasEnergyStorage>
 			event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK, ${blockentity.getModElement().getRegistryNameUpper()}.get(), (blockEntity, side) -> blockEntity.getEnergyStorage());
 			</#if>
