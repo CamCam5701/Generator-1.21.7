@@ -64,7 +64,7 @@ package ${package}.client.renderer.block;
 		</#list>
 	}
 
-	@Override public void render(${name}BlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource renderer, int light, int overlayLight) {
+	@Override public void render(${name}BlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource renderer, int light, int overlayLight, Vec3 vec3) {
 		<#compress>
 		updateRenderState(blockEntity, partialTick);
 		poseStack.pushPose();
