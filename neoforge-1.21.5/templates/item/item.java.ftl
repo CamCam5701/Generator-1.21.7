@@ -289,20 +289,19 @@ public class ${name}Item extends <#if data.hasBannerPatterns()>BannerPattern</#i
 
 	<#if data.enableRanged>
 	private ItemStack findAmmo(Player player) {
-		<#if data.projectileDisableAmmoCheck>
-		return new ItemStack(${generator.map(data.projectile.getUnmappedValue(), "projectiles", 2)});
-		<#else>
-		ItemStack stack = ProjectileWeaponItem.getHeldProjectile(player, e -> e.getItem() == ${generator.map(data.projectile.getUnmappedValue(), "projectiles", 2)});
-		if(stack == ItemStack.EMPTY) {
-			for (int i = 0; i < player.getInventory().items.size(); i++) {
-				ItemStack teststack = player.getInventory().items.get(i);
-				if(teststack != null && teststack.getItem() == ${generator.map(data.projectile.getUnmappedValue(), "projectiles", 2)}) {
-					stack = teststack;
-					break;
-				}
-			}
-		}
-		return stack;
+        <#if data.projectileDisableAmmoCheck>
+        <#else>
+        ItemStack stack = ProjectileWeaponItem.getHeldProjectile(player, e -> e.getItem() == ${generator.map(data.projectile.getUnmappedValue(), "projectiles", 2)});
+        if (stack.isEmpty()) {
+            for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+                ItemStack teststack = player.getInventory().getItem(i);
+                if (!teststack.isEmpty() && teststack.getItem() == ${generator.map(data.projectile.getUnmappedValue(), "projectiles", 2)}) {
+                    stack = teststack;
+                    break;
+                }
+            }
+        }
+        return stack;
 		</#if>
 	}
 	</#if>
