@@ -1,7 +1,7 @@
 # MCreator generator for Minecraft NeoForge 1.21.7 Java Edition mods/Datapack.
 ![License](https://img.shields.io/badge/License-GPLv3-blue.svg)
 
-# THIS PLUGIN IS A FORK OF MagicalAlexeys NEOFORGER 1.21.5, HUGE CREDIT TO THEM, https://mcreator.net/plugin/114855/minecraft-neoforge-1215-java-editiondatapack-generator
+# THIS PLUGIN IS A FORK OF [MagicalAlexeys NeoForge 1.21.5 Plugin](https://mcreator.net/plugin/114855/minecraft-neoforge-1215-java-editiondatapack-generator), HUGE CREDIT TO THEM
 
 MCreator generator plugin for Minecraft NeoForge 1.21.7 Java Edition mods/Datapack.
 
