@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4dc7e71-dac6-4dde-ab5a-593ac9bcc7b5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datapack-1.21.7/generator.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/datapack-1.21.7/generator.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resourcepack-1.21.7/generator.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/resourcepack-1.21.7/generator.yaml" afterDir="false" />
-    </list>
+    <list default="true" id="a4dc7e71-dac6-4dde-ab5a-593ac9bcc7b5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
