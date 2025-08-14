@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4dc7e71-dac6-4dde-ab5a-593ac9bcc7b5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datapack-1.21.7/generator.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/datapack-1.21.7/generator.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resourcepack-1.21.7/generator.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/resourcepack-1.21.7/generator.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
