@@ -1,7 +1,7 @@
-# MCreator generator for Minecraft NeoForge 1.21.5 Java Edition mods/Datapack.
+# MCreator generator for Minecraft NeoForge 1.21.7 Java Edition mods/Datapack.
 ![License](https://img.shields.io/badge/License-GPLv3-blue.svg)
 
-MCreator generator plugin for Minecraft NeoForge 1.21.5 Java Edition mods/Datapack.
+MCreator generator plugin for Minecraft NeoForge 1.21.7 Java Edition mods/Datapack.
 
 ## How to install
 
