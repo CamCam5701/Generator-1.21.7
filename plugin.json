@@ -1,13 +1,13 @@
 {
-  "id": "neoforge-generator-1.21.5",
+  "id": "neoforge-generator-1.21.7",
   "supportedversions": [
     2025002
   ],
   "weight": 192,
   "info": {
-    "name": "Minecraft NeoForge 1.21.5 Java Edition generator",
-    "version": "2.1",
-    "description": "Minecraft NeoForge 1.21.5 Java Edition/Datapack Generator",
-    "author": "MagicalAlexey"
+    "name": "Minecraft NeoForge 1.21.7 Java Edition generator",
+    "version": "0.0",
+    "description": "Minecraft NeoForge 1.21.7 Java Edition/Datapack Generator --- THIS PLUGIN IS A FORK OF MagicalAlexeys 1.21.5 PLUGIN!!!",
+    "author": "CamCam5701 --- HUGE CRDIT TO MagicalAlexey"
   }
 }
